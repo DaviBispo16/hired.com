@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec npx ts-node ./src/server.ts",
+    "db:migrate": "npx sequelize-cli db:migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/sequelize": "^4.28.20",
+    "@types/typescript": "^2.0.0",
+    "@types/uuid": "^10.0.0",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "express": "^4.21.1",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7",
+    "typescript": "^5.7.2",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  }
+}
