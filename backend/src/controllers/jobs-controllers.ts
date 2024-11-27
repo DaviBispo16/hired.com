@@ -9,7 +9,7 @@ export const getAllJobs = async (req: Request, res: Response) => {
     }  catch (error:any) {
         res.status(500).json({message: `${error.message}`});
     }
-}
+};
 
 export const registerJob = async (req: Request, res: Response) => {
     const {descricao, titulo, telefone, empresa} = req.body;
@@ -26,8 +26,17 @@ export const registerJob = async (req: Request, res: Response) => {
     } catch (error: any) {
         res.status(500).json({message: `${error.message}`});
     }
-}
+};
 
+export const getJobById = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    try {
+        const jobById = await Jobs.findByPk(id);
+        res.status(200).json(jobById);
+    } catch (error: any) {
+        res.status(500).json({message: `${error.message}`});
+    }
+};
 
 
 
