@@ -11,6 +11,23 @@ export const getAllJobs = async (req: Request, res: Response) => {
     }
 }
 
+export const registerJob = async (req: Request, res: Response) => {
+    const {descricao, titulo, telefone, empresa} = req.body;
+    try {
+        const id = uuidv4();
+        const createJob = await Jobs.create({
+            id,
+            descricao,
+            titulo,
+            telefone,
+            empresa
+        });
+        res.status(201).json(createJob);
+    } catch (error: any) {
+        res.status(500).json({message: `${error.message}`});
+    }
+}
+
 
 
 
