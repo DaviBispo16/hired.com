@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {v4 as uuidv4} from 'uuid';
 import Jobs from '../../models/Jobs';
+import { where } from "sequelize";
 
 
 export const getAllJobs = async (req: Request, res: Response) => {
@@ -61,6 +62,23 @@ export const updateJob = async (req: Request, res: Response) => {
         res.status(500).json({message: `${error.message}`});
     }
 }
+
+export const deleteJobById = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    try {
+        const jobById = await Jobs.findByPk(id);
+        if (jobById == null) {
+            res.status(401).json({mensagem: 'ID not found'});
+            return;
+        }
+        const removeJob = await Jobs.destroy({where : {id}});
+        res.status(204).json();
+    } catch (error: any) {
+        res.status(500).json({message:  `${error.message}`});
+    }
+}
+
+
 
 
 
