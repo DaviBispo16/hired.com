@@ -1,36 +1,31 @@
 'use strict';
-const { zonedTimeToUtc } = require('date-fns-tz');
 const { DataTypes } = require('sequelize');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Jobs', {
+    queryInterface.createTable('Users', {
       id: {
         type: DataTypes.UUIDV4,
         primaryKey: true
       },
-      descricao: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
+      },
+      senha: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       dataDeCadastro: {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: new Date()
       },
-      telefone: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }, 
-      empresa: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
     })
   },
-
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Jobs');
+    await queryInterface.dropTable('Users')
   }
 };

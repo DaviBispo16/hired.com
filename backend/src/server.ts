@@ -1,12 +1,14 @@
 import express from 'express';
-import router from './routes/jobs-routes';
+import jobsRouter from './routes/jobs-routes';
 import sequelize from '../config/database';
+import usersRouter from './routes/users-routes';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(router);
+app.use(jobsRouter);
+app.use(usersRouter);
 
 app.listen(port, async () => {
     try {

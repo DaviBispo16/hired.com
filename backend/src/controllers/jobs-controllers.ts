@@ -32,6 +32,10 @@ export const getJobById = async (req: Request, res: Response) => {
     const {id} = req.params;
     try {
         const jobById = await Jobs.findByPk(id);
+        if (jobById == null) {
+            res.status(404).json({message: "ID not found"});
+            return
+        }
         res.status(200).json(jobById);
     } catch (error) {
         res.status(500).json({messagem: 'server error'});

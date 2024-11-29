@@ -1,12 +1,12 @@
 import express from 'express';
 import { getAllJobs, registerJob, getJobById, updateJob, deleteJobById} from '../controllers/jobs-controllers';
 
-const router = express.Router();
+const jobsRouter = express.Router();
 
-router.get('/vagas', getAllJobs);
-router.post('/vagas', registerJob);
-router.get('/vagas/:id', getJobById);
-router.put('/vagas/:id', updateJob);
-router.delete('/vagas/:id', deleteJobById);
+jobsRouter.get('/vagas', getAllJobs);
+jobsRouter.post('/vagas', registerJob);
+jobsRouter.get('/vagas/:id', getJobById);
+jobsRouter.put('/vagas/:id', updateJob);
+jobsRouter.delete('/vagas/:id', deleteJobById);
 
-export default router;
+export default jobsRouter;
