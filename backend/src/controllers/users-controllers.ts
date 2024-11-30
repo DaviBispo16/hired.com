@@ -17,7 +17,7 @@ export const registerUser = async(req: Request, res: Response) => {
         res.status(201).json(createUser);
 
     } catch (error:any) {
-        res.status(500).json({mensagem: "Erro no servidor"});
+        res.status(500).json({mensagem: `${error.message}`});
     }
 }
 
