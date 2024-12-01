@@ -4,11 +4,20 @@ import { Alert } from "react-native";
 import { Container, Register, InputButton, Heading, Subtitles, EntryButtonTitle ,RedirectArea} from "./styles";
 import { InputAddUsername, InputAddEmail, InputAddPasscode } from "../../components/InputAdd";
 import { AreaNavegationRegister } from "../../components/AreaNavegation";
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type RootStackParamList = {
+    LoginRegisterTabs: undefined;
+    MainTabs: undefined;
+};
+type NavigationProps = NativeStackNavigationProp<RootStackParamList>
 
 export default function RegisterScreen() {
     const [name, setName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const navigation = useNavigation<NavigationProps>();
 
     const handleRegistration = async () => {
         if (!name || !email || !password) {
@@ -21,6 +30,7 @@ export default function RegisterScreen() {
                 email, 
                 senha: password
             });
+            navigation.replace('MainTabs');
             console.log(response.data);
         } catch (error: any) {
             alert(error.request ? 'Email ou senha incorreto(s).' : 'Erro de rede: Nenhuma resposta recebida do servidor.');
@@ -39,9 +49,6 @@ export default function RegisterScreen() {
                     <InputButton onPress={handleRegistration}>
                         <EntryButtonTitle>Criar</EntryButtonTitle>
                     </InputButton>
-                <RedirectArea>
-                    <AreaNavegationRegister/>
-                </RedirectArea>
         </Register>
     </Container>
     );
