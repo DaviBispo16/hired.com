@@ -1,16 +1,18 @@
+import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from '@react-navigation/native';
-import LoginScreen from "./src/screens/LoginScreen";
-import RegisterScreen from "./src/screens/RegisterScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import TabRoutes from "./src/routes/MainTabs";
+import LoginRegisterTabs from "./src/routes/LoginRegisterTabs";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-   <NavigationContainer>
-      <Stack.Navigator initialRouteName='LoginScreen' screenOptions={{headerShown: false}}>
-        <Stack.Screen name='LoginScreen' component={LoginScreen}/>
-        <Stack.Screen name='RegisterScreen' component={RegisterScreen}/>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="LoginRegisterTabs" screenOptions={{ headerShown: false}}>
+        <Stack.Screen name="LoginRegisterTabs" component={LoginRegisterTabs} />
+        <Stack.Screen name="MainTabs" component={TabRoutes} />
       </Stack.Navigator>
     </NavigationContainer>
   );
