@@ -16,3 +16,7 @@
 - Cadastrar Vagas
 - Listar Vagas
 - Editar um  Usuário
+
+| ![Screenshot from 2024-12-02 20-32-40](https://github.com/user-attachments/assets/8c5ba3fa-5b9e-4ee2-9070-5615b1301273) |  ![Screenshot from 2024-12-02 20-32-47](https://github.com/user-attachments/assets/00aceaac-eed5-4209-b3b9-42608c139edb) 
+| ![Screenshot from 2024-12-02 20-32-59](https://github.com/user-attachments/assets/9622b21c-6491-49c7-926c-bdf683e73c4e)  | !![Screenshot from 2024-12-02 20-33-04](https://github.com/user-attachments/assets/d4bc3dcc-39e2-4e41-a8ec-0aba580ca73e) 
+![Screenshot from 2024-12-02 20-33-10](https://github.com/user-attachments/assets/6aa5c1dd-6f26-4b86-94f7-bc6fd36bf8de)
