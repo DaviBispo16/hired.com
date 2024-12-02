@@ -12,3 +12,15 @@ export interface InputAddUsernameProps {
     username: string,
     onChangeUsername?: (newUsername: string) => void;
 }
+
+export interface TypeFormsUserName {
+    name: any
+}
+
+export interface TypeFormsUserEmail {
+    email: any
+}
+
+export interface TypeFormsUserPassword {
+    password: any
+}
